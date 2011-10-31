@@ -1,0 +1,32 @@
+﻿http://en.wikipedia.org/wiki/Keyboard_layout#Bosnian.2C_Croatian.2C_Serbian_.28Latin.29_and_Slovene
+
+Wrong: q, Right: \, Shift: false, AltGr: true, Code: 81
+Wrong: w, Right: |, Shift: false, AltGr: true, Code: 87
+Wrong: e, Right: €, Shift: false, AltGr: true, Code: 69
+Wrong: f, Right: [, Shift: false, AltGr: true, Code: 70
+Wrong: g, Right: ], Shift: false, AltGr: true, Code: 71
+Wrong: k, Right: ł, Shift: false, AltGr: true, Code: 75
+Wrong: l, Right: ł, Shift: false, AltGr: true, Code: 76
+Wrong: v, Right: @, Shift: false, AltGr: true, Code: 86
+Wrong: b, Right: {, Shift: false, AltGr: true, Code: 66
+Wrong: n, Right: }, Shift: false, AltGr: true, Code: 78
+Wrong: m, Right: §, Shift: false, AltGr: true, Code: 77
+Wrong: š, Right: ÷, Shift: false, AltGr: true, Code: 219
+Wrong: đ, Right: ×, Shift: false, AltGr: true, Code: 221
+Wrong: ć, Right: ß, Shift: false, AltGr: true, Code: 222
+Wrong: ž, Right: ¤, Shift: false, AltGr: true, Code: 220
+Wrong: @, Right: ", Shift: true, AltGr: false, Code: 50
+Wrong: ^, Right: &, Shift: true, AltGr: false, Code: 54
+Wrong: &, Right: /, Shift: true, AltGr: false, Code: 55
+Wrong: *, Right: (, Shift: true, AltGr: false, Code: 56
+Wrong: (, Right: ), Shift: true, AltGr: false, Code: 57
+Wrong: ), Right: =, Shift: true, AltGr: false, Code: 48
+Wrong: ", Right: ?, Shift: true, AltGr: false, Code: 191
+Wrong: +, Right: *, Shift: true, AltGr: false, Code: 187
+Wrong: š, Right: Š, Shift: true, AltGr: false, Code: 219
+Wrong: č, Right: Č, Shift: true, AltGr: false, Code: 186
+Wrong: ć, Right: Ć, Shift: true, AltGr: false, Code: 9
+Wrong: ž, Right: Ž, Shift: true, AltGr: false, Code: 220
+Wrong: đ, Right: Đ, Shift: true, AltGr: false, Code: 221
+Wrong: <, Right: >, Shift: true, AltGr: false, Code: 226
+Wrong: 1, Right: \, Shift: false, AltGr: true, Code: 49

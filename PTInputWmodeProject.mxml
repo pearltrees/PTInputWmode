@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	            xmlns:local="pearltrees.*" 
+	            layout="absolute"
+                backgroundColor="#ffffff" 
+                backgroundGradientAlphas="0,0" 
+ viewSourceURL="srcview/index.html">
+   
+   <mx:Script>
+      <![CDATA[
+         private function onChangeLang(event:Event):void{
+            textInput.forceLang = event.currentTarget.selectedItem.lang;
+         }
+      ]]>
+   </mx:Script>
+   
+   <mx:VBox borderStyle="solid" cornerRadius="5" borderColor="#0099CC" 
+            paddingBottom="15" paddingLeft="15" paddingRight="15" paddingTop="15"
+            backgroundColor="#ffffff">
+            
+      <mx:Label text="Normal TextInput" />
+      <mx:TextInput width="350" />
+      
+      <mx:Spacer height="20" />
+      
+      <mx:HBox width="100%" verticalAlign="middle">
+         <mx:Label text="PTTextInputWmode" />
+         <mx:HBox horizontalAlign="right" verticalAlign="middle" width="100%">
+            <mx:Label text="keyboard:" />
+            <mx:ComboBox change="onChangeLang(event)" rowCount="4">
+               <mx:ArrayCollection>
+                  <mx:Object label="French" lang="fr"/>
+                  <mx:Object label="Belgian" lang="fr_BE"/>
+                  <mx:Object label="Swiss (FR)" lang="fr_CH"/>
+                  <mx:Object label="Arabic" lang="ar"/>
+                  <mx:Object label="German" lang="de"/>
+                  <mx:Object label="Hebrew" lang="he"/>
+                  <mx:Object label="Polish" lang="pl"/>
+               </mx:ArrayCollection>
+            </mx:ComboBox>
+         </mx:HBox>
+      </mx:HBox>
+      
+      <local:PTTextInputWmode id="textInput" width="350" forceLang="fr" />
+      
+   </mx:VBox>
+</mx:Application>

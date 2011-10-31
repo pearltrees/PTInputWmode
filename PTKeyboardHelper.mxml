@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+                backgroundColor="#ffffff" backgroundGradientAlphas="0,0">
+   <mx:Script>
+      <![CDATA[
+         import mx.utils.StringUtil;
+         
+         // infos
+         private var _keyCode:uint;
+         private var _wrongChar:String;
+         private var _rightChar:String;
+         private var _altGrPressed:Boolean;
+         private var _shiftPressed:Boolean;
+         
+         // modifier key states
+         private var _altGrIsDown:Boolean;
+         private var _shiftIsDown:Boolean;
+         
+         private function init():void {
+            keyCodeInfo.text = "";
+            charPressedInfo.text = "";
+            shiftInfo.text = "";
+            altGrInfo.text = "";
+         }
+         
+         private function onKeyUp(event:KeyboardEvent):void {
+            updateModifierKeyState(event.keyCode, false);
+         }           
+         private function onKeyDown(event:KeyboardEvent):void {
+            if(isModifierKey(event.keyCode)){
+               updateModifierKeyState(event.keyCode, true);
+            }else{
+               init();
+               _keyCode = event.keyCode;
+            }
+         }
+         public function isModifierKey(keyCode:int):Boolean{
+            return (keyCode == 17 || keyCode == 16)?true:false;
+         }
+         public function updateModifierKeyState(keyCode:int, isDown:Boolean):void {
+            switch(keyCode) {
+               case 17:
+                  _altGrIsDown = isDown;
+                  break;
+               case 16:
+                  _shiftIsDown = isDown;
+                  break;
+               default:
+            }         
+         }                 
+         
+         private function onTextInput(event:TextEvent):void {
+            charPressedInfo.text = _wrongChar = event.text;
+            keyCodeInfo.text = _keyCode.toString();
+            _shiftPressed = _shiftIsDown;
+            _altGrPressed = _altGrIsDown;
+            shiftInfo.text = _shiftPressed.toString();
+            altGrInfo.text = _altGrPressed.toString();
+         }
+         
+         private function onClickAdd(event:MouseEvent):void {
+            _rightChar = rightChar.text;
+            if(StringUtil.trim(_rightChar) == "" || _wrongChar == _rightChar) return;
+            entries.text += "Wrong: " +_wrongChar+
+                            ", Right: "+_rightChar+
+                            ", Shift: "+_shiftPressed.toString()+
+                            ", AltGr: "+_altGrPressed.toString()+
+                            ", Code: "+_keyCode.toString()+"\n";
+         }
+      ]]>
+   </mx:Script>
+   <mx:Style>
+      .step{
+         font-weight: bold;
+         color: #666666;
+         font-size:11pt;
+      }
+   </mx:Style>
+   <mx:VBox borderStyle="solid" cornerRadius="5" borderColor="#0099CC" 
+            paddingBottom="15" paddingLeft="15" paddingRight="15" paddingTop="15"
+            backgroundColor="#ffffff" verticalGap="0">
+      
+      <!-- step 1 -->
+      <mx:Label text="Step 1: enter a non-working character" styleName="step" />      
+      <mx:TextInput id="wrongChar" maxChars="1" textAlign="center" width="40" 
+                    textInput="onTextInput(event)" keyDown="onKeyDown(event)" keyUp="onKeyUp(event)" />
+      <mx:HBox horizontalGap="0">
+         <mx:Label text="Character pressed:" />
+         <mx:Label id="charPressedInfo" />
+      </mx:HBox>
+      <mx:HBox horizontalGap="0">
+         <mx:Label text="Key code:" />
+         <mx:Label id="keyCodeInfo" />
+      </mx:HBox>
+      <mx:HBox horizontalGap="0">
+         <mx:Label text="Shift:" />
+         <mx:Label id="shiftInfo" />
+      </mx:HBox>
+      <mx:HBox horizontalGap="0">
+         <mx:Label text="Alt Gr:" />
+         <mx:Label id="altGrInfo" />
+      </mx:HBox>            
+      
+      <!-- step 2 -->
+      <mx:Spacer height="10" />
+      <mx:Label text="Step 2: insert the right character (copy / past from any text editor)" styleName="step" /> 
+      <mx:TextInput id="rightChar" maxChars="1" textAlign="center" width="40" />
+      
+      <!-- step 3 -->
+      <mx:Spacer height="10" />
+      <mx:Label text="Step 3: add this entry" styleName="step" />
+      <mx:Button label="+" width="40" click="onClickAdd(event)" />
+      
+      <!-- step 4 -->
+      <mx:Spacer height="15" />
+      <mx:Label text="Step 4: Go back to step1, adding other wrong characters." styleName="step" />     
+      <mx:Label text="Current entries:" />
+      <mx:TextArea id="entries" width="100%" height="100" />
+      
+      <!-- step 5 -->
+      <mx:Spacer height="15" />
+      <mx:Label text="Step 5: email me your entries and your keyboard name" styleName="step" />
+   </mx:VBox>            
+</mx:Application>
